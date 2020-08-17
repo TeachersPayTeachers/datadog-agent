@@ -204,61 +204,101 @@ static __always_inline bool dns_stats_enabled() {
 
 static __always_inline __u64 offset_family() {
     __u64 val = 0;
+#if RUNTIME_COMPILATION == 1
+    val = offsetof(struct sock, sk_family);
+#else
     LOAD_CONSTANT("offset_family", val);
+#endif
     return val;
 }
 
 static __always_inline __u64 offset_saddr() {
     __u64 val = 0;
+#if RUNTIME_COMPILATION == 1
+    val = offsetof(struct sock, sk_rcv_saddr);
+#else
     LOAD_CONSTANT("offset_saddr", val);
+#endif
     return val;
 }
 
 static __always_inline __u64 offset_daddr() {
     __u64 val = 0;
+#if RUNTIME_COMPILATION == 1
+    val = offsetof(struct sock, sk_daddr);
+#else
     LOAD_CONSTANT("offset_daddr", val);
+#endif
     return val;
 }
 
 static __always_inline __u64 offset_daddr_ipv6() {
     __u64 val = 0;
+#if RUNTIME_COMPILATION == 1
+    val = offsetof(struct sock, sk_v6_daddr);
+#else
     LOAD_CONSTANT("offset_daddr_ipv6", val);
+#endif
     return val;
 }
 
 static __always_inline __u64 offset_sport() {
     __u64 val = 0;
+#if RUNTIME_COMPILATION == 1
+    val = offsetof(struct sock, sk_num);
+#else
     LOAD_CONSTANT("offset_sport", val);
+#endif
     return val;
 }
 
 static __always_inline __u64 offset_dport() {
     __u64 val = 0;
+#if RUNTIME_COMPILATION == 1
+    val = offsetof(struct sock, sk_dport);
+#else
     LOAD_CONSTANT("offset_dport", val);
+#endif
     return val;
 }
 
 static __always_inline __u64 offset_netns() {
     __u64 val = 0;
+#if RUNTIME_COMPILATION == 1
+    val = offsetof(struct sock, sk_net);
+#else
     LOAD_CONSTANT("offset_netns", val);
+#endif
     return val;
 }
 
 static __always_inline __u64 offset_ino() {
     __u64 val = 0;
+#if RUNTIME_COMPILATION == 1
+    val = offsetof(struct net, ifindex);
+#else
     LOAD_CONSTANT("offset_ino", val);
+#endif
     return val;
 }
 
 static __always_inline __u64 offset_rtt() {
     __u64 val = 0;
+#if RUNTIME_COMPILATION == 1
+    val = offsetof(struct tcp_sock, srtt_us);
+#else
     LOAD_CONSTANT("offset_rtt", val);
+#endif
     return val;
 }
 
 static __always_inline __u64 offset_rtt_var() {
     __u64 val = 0;
+#if RUNTIME_COMPILATION == 1
+    val = offsetof(struct tcp_sock, rttvar_us);
+#else
     LOAD_CONSTANT("offset_rtt_var", val);
+#endif
     return val;
 }
 
